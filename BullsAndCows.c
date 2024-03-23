@@ -33,14 +33,8 @@ int main()
                 cows = 0;
 
                 printf("Введите ваше предположение: ");
-                scanf_s("%s", &GuessNum, sizeof(GuessNum));
-                while (!(TTrueNum(GuessNum)))
-                {
-                    printf("Повторите ввод: ");
-                    scanf_s("%s", &GuessNum, sizeof(GuessNum));
-                }
-                guessNum = atoi(GuessNum);
-                
+
+                guessNum = Inputt();
                 TrueNum(guessNum, &guessNumber);
 
                 BullsAndCows(guessNumber, secretNumber, &bulls, &cows);
@@ -69,14 +63,8 @@ int main()
 
                 printf("Ход игрока 1\n");
                 printf("Введите ваше предположение: ");
-                scanf_s("%s", &GuessNum1, sizeof(GuessNum1));
-                while (!(TTrueNum(GuessNum1)))
-                {
-                    printf("Повторите ввод: ");
-                    scanf_s("%s", &GuessNum1, sizeof(GuessNum1));
-                }
-                guessNum1 = atoi(GuessNum1);
 
+                guessNum1 = Inputt();
                 TrueNum(guessNum1, &guessNumber1);
 
                 BullsAndCows(guessNumber1, secretNumber1, &bulls1, &cows1);
@@ -90,13 +78,7 @@ int main()
                 printf("Ход игрока 2\n");
                 printf("Введите ваше предположение: ");
 
-                scanf_s("%s", &GuessNum2, sizeof(GuessNum2));
-                while (!(TTrueNum(GuessNum2)))
-                {
-                    printf("Повторите ввод: ");
-                    scanf_s("%s", &GuessNum2, sizeof(GuessNum2));
-                }
-                guessNum2 = atoi(GuessNum2);
+                guessNum2 = Inputt();
 
                 TrueNum(guessNum2, &guessNumber2);
 

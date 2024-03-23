@@ -4,7 +4,7 @@
 #include <locale.h>
 #include <ctype.h>
 
-void Random(int* secretNumber)
+void Random(int* secretNumber) 
 {
     do {
         secretNumber[0] = rand() % 9 + 1;
@@ -15,10 +15,11 @@ void Random(int* secretNumber)
 
 }
 
-int TTrueNum(char GuessNum[])  //
+
+int TTrueNum(char GuessNum[]) 
 {
     int i;
-    for (i = 0; i<strlen(GuessNum); i++) {
+    for (i = 0; i < strlen(GuessNum); i++) {
         if (!isdigit(GuessNum[i])) {
             printf("Ошибка: введенное значение не является числом.\n");
             return 0;
@@ -27,14 +28,26 @@ int TTrueNum(char GuessNum[])  //
     return 1;
 }
 
+int Inputt()
+{
+    char GuessNum[10];
+    scanf_s("%s", &GuessNum, sizeof(GuessNum));
+    while (!(TTrueNum(GuessNum)))
+    {
+        printf("Повторите ввод: ");
+        scanf_s("%s", &GuessNum, sizeof(GuessNum));
+    }
+    return atoi(GuessNum);
+}
 
-int TrueNum(int guessNum, int guess[])
+
+int TrueNum(int guessNum, int guess[], char GuessNum[])
 {
 
     while (!(guessNum >= 1000 && guessNum <= 9999))
     {
         printf("Вы ввели не четырехзначное число, повторите ввод: ");
-        scanf_s("%d", &guessNum);
+        guessNum = Inputt();
     }
     if (guessNum >= 1000 && guessNum <= 9999)
     {
@@ -42,12 +55,11 @@ int TrueNum(int guessNum, int guess[])
         while (guess[0] == guess[1] || guess[0] == guess[2] || guess[0] == guess[3] || guess[1] == guess[2] || guess[1] == guess[3] || guess[2] == guess[3])
         {
             printf("Вы ввели некорректное число, все цифры в числе должны быть различны, повторите ввод: ");
-            scanf_s("%d", &guessNum);
+            guessNum = Inputt();
             while (!(guessNum >= 1000 && guessNum <= 9999))
             {
                 printf("Вы ввели не четырехзначное число, повторите ввод: ");
-
-                scanf_s("%d", &guessNum);
+                guessNum = Inputt();
             }
             guess[0] = guessNum / 1000; guess[1] = guessNum % 1000 / 100; guess[2] = guessNum % 100 / 10; guess[3] = guessNum % 10;
         }
