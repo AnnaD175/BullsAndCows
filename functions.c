@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
+#include <ctype.h>
 
 void Random(int* secretNumber)
 {
@@ -14,8 +15,22 @@ void Random(int* secretNumber)
 
 }
 
-void TrueNum(int guessNum, int guess[])
+int TTrueNum(char GuessNum[])  //
 {
+    int i;
+    for (i = 0; i<strlen(GuessNum); i++) {
+        if (!isdigit(GuessNum[i])) {
+            printf("Ошибка: введенное значение не является числом.\n");
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+int TrueNum(int guessNum, int guess[])
+{
+
     while (!(guessNum >= 1000 && guessNum <= 9999))
     {
         printf("Вы ввели не четырехзначное число, повторите ввод: ");
@@ -28,6 +43,12 @@ void TrueNum(int guessNum, int guess[])
         {
             printf("Вы ввели некорректное число, все цифры в числе должны быть различны, повторите ввод: ");
             scanf_s("%d", &guessNum);
+            while (!(guessNum >= 1000 && guessNum <= 9999))
+            {
+                printf("Вы ввели не четырехзначное число, повторите ввод: ");
+
+                scanf_s("%d", &guessNum);
+            }
             guess[0] = guessNum / 1000; guess[1] = guessNum % 1000 / 100; guess[2] = guessNum % 100 / 10; guess[3] = guessNum % 10;
         }
     }

@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
+#include <ctype.h>
 
 int main() 
 {
     setlocale(LC_ALL, "Russian");
     int ch;
     int guessNum, guessNum1, guessNum2;
+    char GuessNum[10], GuessNum1[10], GuessNum2[10];
     int secretNumber[4], secretNumber1[4], secretNumber2[4];
     int guessNumber[4], guessNumber1[4], guessNumber2[4];
     int bulls, cows, attempts, bulls1, bulls2, cows1, cows2;
@@ -31,7 +33,14 @@ int main()
                 cows = 0;
 
                 printf("Введите ваше предположение: ");
-                scanf_s("%d", &guessNum);
+                scanf_s("%s", &GuessNum, sizeof(GuessNum));
+                while (!(TTrueNum(GuessNum)))
+                {
+                    printf("Повторите ввод: ");
+                    scanf_s("%s", &GuessNum, sizeof(GuessNum));
+                }
+                guessNum = atoi(GuessNum);
+                
                 TrueNum(guessNum, &guessNumber);
 
                 BullsAndCows(guessNumber, secretNumber, &bulls, &cows);
@@ -60,9 +69,15 @@ int main()
 
                 printf("Ход игрока 1\n");
                 printf("Введите ваше предположение: ");
-                scanf_s("%d", &guessNum1);
-                TrueNum(guessNum1, &guessNumber1);
+                scanf_s("%s", &GuessNum1, sizeof(GuessNum1));
+                while (!(TTrueNum(GuessNum1)))
+                {
+                    printf("Повторите ввод: ");
+                    scanf_s("%s", &GuessNum1, sizeof(GuessNum1));
+                }
+                guessNum1 = atoi(GuessNum1);
 
+                TrueNum(guessNum1, &guessNumber1);
 
                 BullsAndCows(guessNumber1, secretNumber1, &bulls1, &cows1);
 
@@ -74,7 +89,15 @@ int main()
 
                 printf("Ход игрока 2\n");
                 printf("Введите ваше предположение: ");
-                scanf_s("%d", &guessNum2);
+
+                scanf_s("%s", &GuessNum2, sizeof(GuessNum2));
+                while (!(TTrueNum(GuessNum2)))
+                {
+                    printf("Повторите ввод: ");
+                    scanf_s("%s", &GuessNum2, sizeof(GuessNum2));
+                }
+                guessNum2 = atoi(GuessNum2);
+
                 TrueNum(guessNum2, &guessNumber2);
 
                 BullsAndCows(guessNumber2, secretNumber2, &bulls2, &cows2);
