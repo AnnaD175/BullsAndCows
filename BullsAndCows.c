@@ -3,9 +3,11 @@
 #include <time.h>
 #include <locale.h>
 
-int main() {
+int main() 
+{
     setlocale(LC_ALL, "Russian");
     int ch;
+    int guessNum, guessNum1, guessNum2;
     int secretNumber[4], secretNumber1[4], secretNumber2[4];
     int guessNumber[4], guessNumber1[4], guessNumber2[4];
     int bulls, cows, attempts, bulls1, bulls2, cows1, cows2;
@@ -29,10 +31,10 @@ int main() {
                 cows = 0;
 
                 printf("Введите ваше предположение: ");
-                scanf_s("%1d%1d%1d%1d", &guessNumber[0], &guessNumber[1], &guessNumber[2], &guessNumber[3]);
+                scanf_s("%d", &guessNum);
+                TrueNum(guessNum, &guessNumber);
 
                 BullsAndCows(guessNumber, secretNumber, &bulls, &cows);
-
 
                 attempts++;
                 printf("Быков: %d, коров: %d\n", bulls, cows);
@@ -48,6 +50,9 @@ int main() {
             Random(secretNumber1);
 
             Random(secretNumber2);
+
+            printf("Компьютер задумал числа для двух игроков. Попробуйте отгадать их (четырехзначные числа с разными цифрами).\n");
+
             attempts = 0;
             do {
                 bulls1 = 0;
@@ -55,7 +60,9 @@ int main() {
 
                 printf("Ход игрока 1\n");
                 printf("Введите ваше предположение: ");
-                scanf_s("%1d%1d%1d%1d", &guessNumber1[0], &guessNumber1[1], &guessNumber1[2], &guessNumber1[3]);
+                scanf_s("%d", &guessNum1);
+                TrueNum(guessNum1, &guessNumber1);
+
 
                 BullsAndCows(guessNumber1, secretNumber1, &bulls1, &cows1);
 
@@ -67,7 +74,8 @@ int main() {
 
                 printf("Ход игрока 2\n");
                 printf("Введите ваше предположение: ");
-                scanf_s("%1d%1d%1d%1d", &guessNumber2[0], &guessNumber2[1], &guessNumber2[2], &guessNumber2[3]);
+                scanf_s("%d", &guessNum2);
+                TrueNum(guessNum2, &guessNumber2);
 
                 BullsAndCows(guessNumber2, secretNumber2, &bulls2, &cows2);
 

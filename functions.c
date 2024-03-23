@@ -14,6 +14,25 @@ void Random(int* secretNumber)
 
 }
 
+void TrueNum(int guessNum, int guess[])
+{
+    while (!(guessNum >= 1000 && guessNum <= 9999))
+    {
+        printf("Вы ввели не четырехзначное число, повторите ввод: ");
+        scanf_s("%d", &guessNum);
+    }
+    if (guessNum >= 1000 && guessNum <= 9999)
+    {
+        guess[0] = guessNum / 1000; guess[1] = (guessNum % 1000) / 100; guess[2] = (guessNum % 100) / 10; guess[3] = guessNum % 10;
+        while (guess[0] == guess[1] || guess[0] == guess[2] || guess[0] == guess[3] || guess[1] == guess[2] || guess[1] == guess[3] || guess[2] == guess[3])
+        {
+            printf("Вы ввели некорректное число, все цифры в числе должны быть различны, повторите ввод: ");
+            scanf_s("%d", &guessNum);
+            guess[0] = guessNum / 1000; guess[1] = guessNum % 1000 / 100; guess[2] = guessNum % 100 / 10; guess[3] = guessNum % 10;
+        }
+    }
+}
+
 void BullsAndCows(int* guessNumber, int* secretNumber, int* bulls, int* cows)
 {
 
