@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
@@ -21,7 +21,7 @@ int TTrueNum(char GuessNum[])
     int i;
     for (i = 0; i < strlen(GuessNum); i++) {
         if (!isdigit(GuessNum[i])) {
-            printf("Îøèáêà: ââåäåííîå çíà÷åíèå íå ÿâëÿåòñÿ ÷èñëîì.\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ°: Ð²Ð²ÐµÐ´ÐµÐ½Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð½Ðµ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ñ‡Ð¸ÑÐ»Ð¾Ð¼.\n");
             return 0;
         }
     }
@@ -34,7 +34,7 @@ int Inputt()
     scanf_s("%s", &GuessNum, sizeof(GuessNum));
     while (!(TTrueNum(GuessNum)))
     {
-        printf("Ïîâòîðèòå ââîä: ");
+        printf("ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð²Ð²Ð¾Ð´: ");
         scanf_s("%s", &GuessNum, sizeof(GuessNum));
     }
     return atoi(GuessNum);
@@ -46,7 +46,7 @@ int TrueNum(int guessNum, int guess[], char GuessNum[])
 
     while (!(guessNum >= 1000 && guessNum <= 9999))
     {
-        printf("Âû ââåëè íå ÷åòûðåõçíà÷íîå ÷èñëî, ïîâòîðèòå ââîä: ");
+        printf("Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ Ð½Ðµ Ñ‡ÐµÑ‚Ñ‹Ñ€ÐµÑ…Ð·Ð½Ð°Ñ‡Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾, Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð²Ð²Ð¾Ð´: ");
         guessNum = Inputt();
     }
     if (guessNum >= 1000 && guessNum <= 9999)
@@ -54,11 +54,11 @@ int TrueNum(int guessNum, int guess[], char GuessNum[])
         guess[0] = guessNum / 1000; guess[1] = (guessNum % 1000) / 100; guess[2] = (guessNum % 100) / 10; guess[3] = guessNum % 10;
         while (guess[0] == guess[1] || guess[0] == guess[2] || guess[0] == guess[3] || guess[1] == guess[2] || guess[1] == guess[3] || guess[2] == guess[3])
         {
-            printf("Âû ââåëè íåêîððåêòíîå ÷èñëî, âñå öèôðû â ÷èñëå äîëæíû áûòü ðàçëè÷íû, ïîâòîðèòå ââîä: ");
+            printf("Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾, Ð²ÑÐµ Ñ†Ð¸Ñ„Ñ€Ñ‹ Ð² Ñ‡Ð¸ÑÐ»Ðµ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ñ€Ð°Ð·Ð»Ð¸Ñ‡Ð½Ñ‹, Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð²Ð²Ð¾Ð´: ");
             guessNum = Inputt();
             while (!(guessNum >= 1000 && guessNum <= 9999))
             {
-                printf("Âû ââåëè íå ÷åòûðåõçíà÷íîå ÷èñëî, ïîâòîðèòå ââîä: ");
+                printf("Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ Ð½Ðµ Ñ‡ÐµÑ‚Ñ‹Ñ€ÐµÑ…Ð·Ð½Ð°Ñ‡Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾, Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð²Ð²Ð¾Ð´: ");
                 guessNum = Inputt();
             }
             guess[0] = guessNum / 1000; guess[1] = guessNum % 1000 / 100; guess[2] = guessNum % 100 / 10; guess[3] = guessNum % 10;
