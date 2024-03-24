@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
@@ -13,10 +13,10 @@ int main()
     int secretNumber[4], secretNumber1[4], secretNumber2[4];
     int guessNumber[4], guessNumber1[4], guessNumber2[4];
     int bulls, cows, attempts, bulls1, bulls2, cows1, cows2;
-    printf("Игра -Быки и коровы-\n");
+    printf("РРіСЂР° -Р‘С‹РєРё Рё РєРѕСЂРѕРІС‹-\n");
     do
     {
-        printf_s("Выберите вариант игры:\n1 - против компьютера\n2 - один игрок против другого\n");
+        printf_s("Р’С‹Р±РµСЂРёС‚Рµ РІР°СЂРёР°РЅС‚ РёРіСЂС‹:\n1 - РїСЂРѕС‚РёРІ РєРѕРјРїСЊСЋС‚РµСЂР°\n2 - РѕРґРёРЅ РёРіСЂРѕРє РїСЂРѕС‚РёРІ РґСЂСѓРіРѕРіРѕ\n");
         scanf_s("%d", &ch);
         printf("-------------------------------\n");
         switch (ch)
@@ -25,14 +25,14 @@ int main()
             srand(time(0));
             Random(secretNumber);
 
-            printf("Компьютер задумал число. Попробуйте отгадать его (четырехзначное число с разными цифрами).\n");
+            printf("РљРѕРјРїСЊСЋС‚РµСЂ Р·Р°РґСѓРјР°Р» С‡РёСЃР»Рѕ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РѕС‚РіР°РґР°С‚СЊ РµРіРѕ (С‡РµС‚С‹СЂРµС…Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ СЃ СЂР°Р·РЅС‹РјРё С†РёС„СЂР°РјРё).\n");
 
             attempts = 0;
             do {
                 bulls = 0;
                 cows = 0;
 
-                printf("Введите ваше предположение: ");
+                printf("Р’РІРµРґРёС‚Рµ РІР°С€Рµ РїСЂРµРґРїРѕР»РѕР¶РµРЅРёРµ: ");
 
                 guessNum = Inputt();
                 TrueNum(guessNum, &guessNumber);
@@ -40,12 +40,12 @@ int main()
                 BullsAndCows(guessNumber, secretNumber, &bulls, &cows);
 
                 attempts++;
-                printf("Быков: %d, коров: %d\n", bulls, cows);
+                printf("Р‘С‹РєРѕРІ: %d, РєРѕСЂРѕРІ: %d\n", bulls, cows);
                 printf("-------------------------------\n");
 
             } while (bulls < 4);
 
-            printf("Поздравляем! Вы отгадали число за %d попыток.\n", attempts);
+            printf("РџРѕР·РґСЂР°РІР»СЏРµРј! Р’С‹ РѕС‚РіР°РґР°Р»Рё С‡РёСЃР»Рѕ Р·Р° %d РїРѕРїС‹С‚РѕРє.\n", attempts);
 
             break;
         case 2:
@@ -54,29 +54,29 @@ int main()
 
             Random(secretNumber2);
 
-            printf("Компьютер задумал числа для двух игроков. Попробуйте отгадать их (четырехзначные числа с разными цифрами).\n");
+            printf("РљРѕРјРїСЊСЋС‚РµСЂ Р·Р°РґСѓРјР°Р» С‡РёСЃР»Р° РґР»СЏ РґРІСѓС… РёРіСЂРѕРєРѕРІ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РѕС‚РіР°РґР°С‚СЊ РёС… (С‡РµС‚С‹СЂРµС…Р·РЅР°С‡РЅС‹Рµ С‡РёСЃР»Р° СЃ СЂР°Р·РЅС‹РјРё С†РёС„СЂР°РјРё).\n");
 
             attempts = 0;
             do {
                 bulls1 = 0;
                 cows1 = 0;
 
-                printf("Ход игрока 1\n");
-                printf("Введите ваше предположение: ");
+                printf("РҐРѕРґ РёРіСЂРѕРєР° 1\n");
+                printf("Р’РІРµРґРёС‚Рµ РІР°С€Рµ РїСЂРµРґРїРѕР»РѕР¶РµРЅРёРµ: ");
 
                 guessNum1 = Inputt();
                 TrueNum(guessNum1, &guessNumber1);
 
                 BullsAndCows(guessNumber1, secretNumber1, &bulls1, &cows1);
 
-                printf("Быков: %d, коров: %d\n", bulls1, cows1);
+                printf("Р‘С‹РєРѕРІ: %d, РєРѕСЂРѕРІ: %d\n", bulls1, cows1);
                 printf("-------------------------------\n");
 
                 bulls2 = 0;
                 cows2 = 0;
 
-                printf("Ход игрока 2\n");
-                printf("Введите ваше предположение: ");
+                printf("РҐРѕРґ РёРіСЂРѕРєР° 2\n");
+                printf("Р’РІРµРґРёС‚Рµ РІР°С€Рµ РїСЂРµРґРїРѕР»РѕР¶РµРЅРёРµ: ");
 
                 guessNum2 = Inputt();
 
@@ -84,7 +84,7 @@ int main()
 
                 BullsAndCows(guessNumber2, secretNumber2, &bulls2, &cows2);
 
-                printf("Быков: %d, коров: %d\n", bulls2, cows2);
+                printf("Р‘С‹РєРѕРІ: %d, РєРѕСЂРѕРІ: %d\n", bulls2, cows2);
                 printf("-------------------------------\n");
                 attempts++;
 
@@ -92,16 +92,16 @@ int main()
 
             if ((bulls1 + bulls2) == 8)
             {
-                printf("Ничья, оба игрока отгадали слова за %d попыток", attempts);
+                printf("РќРёС‡СЊСЏ, РѕР±Р° РёРіСЂРѕРєР° РѕС‚РіР°РґР°Р»Рё СЃР»РѕРІР° Р·Р° %d РїРѕРїС‹С‚РѕРє", attempts);
             }
             else {
                 if (bulls1 == 4)
                 {
-                    printf("Выиграл 1 игрок за %d попыток", attempts);
+                    printf("Р’С‹РёРіСЂР°Р» 1 РёРіСЂРѕРє Р·Р° %d РїРѕРїС‹С‚РѕРє", attempts);
                 }
                 if (bulls2 == 4)
                 {
-                    printf("Выиграл 2 игрок за %d попыток", attempts);
+                    printf("Р’С‹РёРіСЂР°Р» 2 РёРіСЂРѕРє Р·Р° %d РїРѕРїС‹С‚РѕРє", attempts);
                 }
             }
             break;
