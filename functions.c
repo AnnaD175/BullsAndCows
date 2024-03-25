@@ -21,7 +21,7 @@ int TTrueNum(char GuessNum[])
     int i;
     for (i = 0; i < strlen(GuessNum); i++) {
         if (!isdigit(GuessNum[i])) {
-            printf("Ошибка: введенное значение не является числом.\n");
+            printf("Некорректный ввод.\n");
             return 0;
         }
     }
