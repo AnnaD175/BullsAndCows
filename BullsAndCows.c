@@ -7,6 +7,7 @@
 int main() 
 {
     setlocale(LC_ALL, "Russian");
+    char Ch[10];
     int ch;
     int guessNum, guessNum1, guessNum2;
     char GuessNum[10], GuessNum1[10], GuessNum2[10];
@@ -17,7 +18,7 @@ int main()
     do
     {
         printf_s("Выберите вариант игры:\n1 - против компьютера\n2 - один игрок против другого\n");
-        scanf_s("%d", &ch);
+        ch = Inputt();
         printf("-------------------------------\n");
         switch (ch)
         {
@@ -105,7 +106,7 @@ int main()
                 }
             }
             break;
-        default: printf("error");
+        default: printf("error\n");
         }
     } while (0 >= ch || ch > 2);
 
